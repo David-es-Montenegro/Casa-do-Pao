@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="casadopao.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    
+    
+    <title>Cadastro de Usuários</title>
+</head>
+<body>
+      
+    <nav>
+        <div class="logo">
+            <img  src="img/logo.png.png" alt="Logo">
+        </div>
+        <ul class="links">
+          <li><a href="#">Cadastro</a></li>
+          <li><a href="#">Consulta</a></li>
+        </ul>
+      </nav>
+       
+   
+    <div class="container">
+       
+        <header>Cadastrar Beneficiário</header>
+
+        <form action="#">
+            <div class="form first">
+                <div class="details personal">
+                    <span class="title">Informações Pessoais</span>
+
+                    <div class="fields" >
+                        <div class="input-field">
+                            <img class="user" src="img/image-removebg-preview (31).png" alt="foto usuário">
+                            <button class="edit-button-img">Editar Foto</button>
+                        </div>
+
+                        <div class="input-field">
+                            <label> Nome</label>
+                            <input type="text" placeholder="Insira o nome completo" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Gênero</label>
+                            <select required>
+                                <option disabled selected>Selecione o Gênero</option>
+                                <option>Feminino</option>
+                                <option>Masculino</option>
+                                <option>Não Binário</option>
+                                <option>Transgênero</option>
+                                <option>Prefiro não dizer</option>
+                                <option>Outros</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                      
+                          
+                        </div>
+ 
+                         <div class="input-field">
+                             <label> Telefone</label>
+                             <input type="number" placeholder="81 99999-9999" required>
+                           
+                                <label class="checkbox-label">
+                                  <input type="checkbox" name="nao-possui" value="nao-possui" class="checkbox-input">
+                                  Não possui
+                                </label>
+                              
+                         
+                         </div>
+
+                        
+                         <div class="input-field">
+                             <label> Data de Nascimento</label>
+                             <input type="date" placeholder="Selecione a data de nascimento" required>
+                             <label class="checkbox-label">
+                                <input type="checkbox" name="nao-possui" value="nao-possui" class="checkbox-input">
+                                Não possui
+                              </label>
+                        </div>
+                       
+                    </div>
+                   
+                </div>
+                         <div class="details escolarity">
+                            <span class="title">Escolaridade</span>
+        
+                            <div class="fields">
+                                <div class="input-field">
+                                    <label>Alfabetizado?</label>
+                                    <select required>
+                                        <option disabled selected>Selecione uma opção</option>
+                                        <option>Sim</option>
+                                        <option>Não</option>
+                                        
+                                    </select>
+                                </div>
+        
+                                <div class="input-field">
+                                    <label>Nível de Escolaridade</label>
+                                <select id="nivel-escolaridade-select" required>
+                                        <option disabled selected>Selecione uma opção</option>
+                                        <option>Não Possui</option>
+                                        <option>Ensino Fundamental Incompleto</option>
+                                        <option>Ensino Fundamental Completo</option>
+                                        <option>Ensino Médio Incompleto</option>
+                                        <option>Ensino Médio Completo</option>
+                                        <option>Ensino Técnico Incompleto</option>
+                                        <option>Ensino Técnico Completo</option>
+                                        <option>Ensino Superior Incompleto</option>
+                                        <option>Ensino Superior Completo</option>
+                                    </select>
+                                </div>
+        
+                                <div class="input-field" id="teste" >
+                                    <label>Possui Certificado?</label>
+                                    <div style="flex-direction: column; display: flex;" >
+                                        <select id="possui-certificado-select" required>
+                                            <option disabled selected>Selecione uma opção</option>
+                                            <option>Sim</option>
+                                            <option>Não</option>
+                                        </select>
+                                     <button class="add-certificate" >Adicionar Imagem</button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                             </div>
+
+                             <div class="details-documentation">
+                                <span class="title">Documentação</span>
+            
+                                <div class="fields">
+                                    <div class="input-field">
+                                        <label>CPF</label>
+                                        <input type="number" placeholder="Digite o CPF" required>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="nao-possui" value="nao-possui" class="checkbox-input">
+                                            Não possui
+                                          </label>
+                                    </div>
+            
+                                    <div class="input-field">
+                                        <label>RG</label>
+                                        <input type="number" placeholder="Digite o RG " required>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="nao-possui" value="nao-possui" class="checkbox-input">
+                                            Não possui
+                                          </label>
+                                    </div>
+            
+                                    <div class="input-field"  >
+                                       
+                                        
+                                    </div>
+
+
+                                </div>
+                                 </div>
+
+                                <div class="details address">
+                                    <span class="title">Endereço</span>
+                
+                                    <div class="fields">
+                                        <div class="input-field">
+                                            <label>CEP</label>
+                                            <input type="number" placeholder="Digite o CEP" required>
+                                        </div>
+                
+                                        <div class="input-field">
+                                            <label>Bairro</label>
+                                            <input type="text" placeholder="Digite o bairro" required>
+                                        </div>
+                
+                                        <div class="input-field">
+                                            <label>Município</label>
+                                            <input type="text" placeholder="Digite o Município" required>
+                                        </div>
+
+                                        <div class="input-field">
+                                            <label>Logradouro</label>
+                                            <input type="text" placeholder="Digite o tipo e nome do Logradouro" required>
+                                        </div>
+                
+                                        <div class="input-field">
+                                            <label>Local onde dorme</label>
+                                            <input type="text" placeholder="Adicione uma descrição" required>
+                                        </div>
+                
+                                        
+                                        <div class="input-field">
+                                           
+                                        </div>
+                            </div>
+        
+                        </div>
+                        <div class="details formation">
+                            <span class="title">Cursos</span>
+        
+                            <div class="fields">
+                                <div class="input-field">
+                                    <label>Eixo de Formação</label>
+                                    <select id="eixo-formacao-select" required>
+                                        <option disabled selected>Selecione uma opção</option>
+                                        <option>Ambiente e Saúde</option>
+                                        <option>Desenvolvimento Educacional e Social</option>
+                                        <option>Gestão e Negócios</option>
+                                        <option>Informação e Comunicação</option>
+                                        <option>Infraestrutura</option>
+                                        <option>Produção Alimentícia</option>
+                                        <option>Produção Cultural e Design</option>
+                                        <option>Segurança</option>
+                                    </select>
+                                </div>
+        
+                                <div class="input-field">
+                                    <label>Segmento</label>
+                                    <select id="segmento-select" required>
+                                        <option disabled selected>Selecione uma opção</option>
+                                    </select>
+                                </div>
+        
+                                
+                                <div class="input-field">
+                                    </div>
+
+                                   <button class="button-save">CADASTRAR</button>
+                    </div>
+
+                </div>
+
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+  <script>
+
+    
+
+/*código para aparecer "possui certificado?" se selecionar alguma opção do nível de escolaridade*/ 
+const nivelEscolaridadeSelect = document.querySelector('#nivel-escolaridade-select');
+const possuiCertificadoDiv = document.querySelector('#teste');
+
+nivelEscolaridadeSelect.addEventListener('change', function() {
+    const opcaoSelecionada = nivelEscolaridadeSelect.value;
+    if (opcaoSelecionada === "Não Possui") {
+        possuiCertificadoDiv.style.visibility = 'hidden';
+    } else {
+        possuiCertificadoDiv.style.visibility = 'visible';
+    }
+    
+});
+
+/*código para mostrar ou ocultar o botão de add imagem quando o usuário informa que há certificado*/ 
+const possuiCertificadoSelect = document.querySelector('#possui-certificado-select');
+const addCertificateButton = document.querySelector('.add-certificate');
+
+possuiCertificadoSelect.addEventListener('change', function() {
+const opcaoSelecionada = possuiCertificadoSelect.value;
+if (opcaoSelecionada === "Sim") {
+addCertificateButton.style.display = 'block';
+} else {
+addCertificateButton.style.display = 'none';
+}
+});
+
+const eixoFormacaoSelect = document.querySelector('#eixo-formacao-select');
+const segmentoSelect = document.querySelector('#segmento-select');
+
+eixoFormacaoSelect.addEventListener('change', function() {
+    const eixoSelecionado = eixoFormacaoSelect.value;
+    segmentoSelect.innerHTML = ''; // Limpa as opções existentes
+
+    if (eixoSelecionado === 'Ambiente e Saúde') {
+        const segmentos = ['Beleza', 'Meio Ambiente', 'Saúde'];
+        segmentos.forEach(function(segmento) {
+            const option = document.createElement('option');
+            option.textContent = segmento;
+            segmentoSelect.appendChild(option);
+        });
+    } else if (eixoSelecionado === 'Desenvolvimento Educacional e Social') {
+        const segmentos = ['Educacional', 'Idiomas', 'Social'];
+        segmentos.forEach(function(segmento) {
+            const option = document.createElement('option');
+            option.textContent = segmento;
+            segmentoSelect.appendChild(option);
+        });
+    }
+    else if (eixoSelecionado === 'Gestão e Negócios') {
+        const segmentos = ['Comércio', 'Gestão'];
+        segmentos.forEach(function(segmento) {
+            const option = document.createElement('option');
+            option.textContent = segmento;
+            segmentoSelect.appendChild(option);
+        });
+    }  else if (eixoSelecionado === 'Informação e Comunicação') {
+        const segmentos = ['Games', 'Tecnologia da Informação', 'Telecomunicações'];
+        segmentos.forEach(function(segmento) {
+            const option = document.createElement('option');
+            option.textContent = segmento;
+            segmentoSelect.appendChild(option);
+        });
+    
+    } else if (eixoSelecionado === 'Infraestrutura') {
+        const segmentos = ['Asseio, Conservação e Zeladoria', 'Construção e Reforma', 'Instalação, Manutenção e Reparação', 'Transporte e Armazenagem'];
+        segmentos.forEach(function(segmento) {
+            const option = document.createElement('option');
+            option.textContent = segmento;
+            segmentoSelect.appendChild(option);
+        });
+   
+    } else if (eixoSelecionado === 'Produção Alimentícia') {
+        const segmentos = ['Produção de Alimentos', 'Produção de Bebidas'];
+        segmentos.forEach(function(segmento) {
+            const option = document.createElement('option');
+            option.textContent = segmento;
+            segmentoSelect.appendChild(option);
+        });
+    } else if (eixoSelecionado === 'Produção Cultural e Design') {
+        const segmentos = ['Artes', 'Comunicação','Design', 'Moda'];
+        segmentos.forEach(function(segmento) {
+            const option = document.createElement('option');
+            option.textContent = segmento;
+            segmentoSelect.appendChild(option);
+        });
+    } else if (eixoSelecionado === 'Segurança') {
+        const segmentos = ['Segurança'];
+        segmentos.forEach(function(segmento) {
+            const option = document.createElement('option');
+            option.textContent = segmento;
+            segmentoSelect.appendChild(option);
+        });
+    }
+
+});
+
+/*script para os botoes de imagem*/
+const editarFotoBtn = document.querySelector('.edit-button-img');
+const adicionarImagemBtn = document.querySelector('.add-certificate');
+
+// Evento de clique para o botão "Editar Foto"
+editarFotoBtn.addEventListener('click', () => {
+  const input = document.createElement('input');
+  input.setAttribute('type', 'file');
+  input.setAttribute('accept', 'image/*');
+  input.addEventListener('change', (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      const img = document.createElement('img');
+      img.setAttribute('src', reader.result);
+      // Faça o que desejar com a imagem, como exibir ou processar
+      // Por exemplo, você pode substituir a imagem existente:
+      const userImg = document.querySelector('.user');
+      userImg.setAttribute('src', reader.result);
+    };
+  });
+  input.click();
+});
+
+
+
+
+  </script>
+</body>
+</html>
