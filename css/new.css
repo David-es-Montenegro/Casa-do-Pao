@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FCF7E1;
+}
+
+nav {
+    position: fixed;
+    top: 1%;
+    width: 98%;
+    background-color: #FBFBF6;
+    padding: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+}
+
+nav .logo img {
+    width: 100px;
+    height: 100%;
+}
+
+nav .links {
+    display: flex;
+    list-style: none;
+}
+
+nav .links li {
+    margin-left: 20px;
+    /*espaço entre os links*/
+}
+
+nav .links a {
+    text-decoration: none;
+    color: #6A6262;
+}
+
+.marcadagua {
+    align-self: center;
+    justify-self: center;
+    width: 100%;
+    opacity: 0.3;
+}
+.marcadagua .image {
+    width: 100%;
+}
+
+.tabela {
+    display: inline;
+    align-items: center;
+    justify-content: center;
+    width: 98%;
+    position: absolute;
+    margin-top: 13vh;
+    padding: 3%;
+    top: 0%;
+    opacity: 80%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: #FBFBF6;
+    border-radius: 5px;
+}
+
+.tabela h1 {
+    align-self: flex-start;
+    font-size: 35px;
+    color: #6A6262;
+
+}
+
+.filtroporGeral {
+    align-self: flex-end;
+    width: 15%;
+    margin-top: 3%;
+    margin-bottom: 2%;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 23px;
+    color: #6A6262;
+}
+
+select {
+    background-color: #FBFBF6;
+    color: #6A6262;
+    border: none;
+}
+
+.tabelaentrada {
+    width: 100%;
+}
+
+.tabelaentrada table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabelaentrada th,
+.tabelaentrada td {
+    border: 1px solid black;
+    padding: 6px;
+    width: 200px;
+
+}
+
+.tabelaentrada th {
+    background-color: #c5b6b6;
+    color: white;
+}
+
+.tabelaentrada td {
+    background-color: #f5f5f5;
+
+}
+
+.BotaoCantoDireito {
+    position: relative;
+    width: 15%;
+    margin-left: 85%;
+    margin-top: 3%;
+    
+}
+
+.BotaoCantoDireito .botao-canto {
+    width: 100%;
+    height: 45px;
+    font-family: 'Montserrat';
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 25px;
+    background-color: #6A6262;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
