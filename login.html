@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css\logincadastro.css">
+    <script src="Js\form.js"></script>
+</head>
+<body>
+    <div class="login">
+        <form id="meuFormulario" onsubmit="enviarFormulario(); return false;">
+            <div class="input-field">
+                <label class="label-text" for="username">CPF:</label>
+                <input type="text" id="username" name="cpf" required>
+            </div>
+        
+            <div class="input-field">
+                <label class="label-text" for="password">Senha:</label>
+                <input type="password" id="password" name="senha" required>
+            </div>
+            
+            <input class="enviar" type="submit" value="Entrar">
+        </form>
+    </div>
+</body>
+</html>
+
