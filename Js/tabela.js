@@ -17,11 +17,11 @@ function preencherTabela(dados) {
     }
 }
 
-// Função para fazer a requisição à API e preencher a tabela
 function carregarDados() {
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'https://casadopao.pythonanywhere.com/consulta');
+    xhr.open('GET', 'https://casadopao.pythonanywhere.com/consulta');
     xhr.setRequestHeader('Content-Type', 'application/json');
+
     xhr.onload = function () {
         if (xhr.status === 200) {
             var dados = JSON.parse(xhr.responseText);
@@ -30,14 +30,11 @@ function carregarDados() {
             console.error('Erro ao obter os dados da API. Status: ' + xhr.status);
         }
     };
-    
-    var dados = {
-        quantidade: 'valor_da_quantidade'
-    };
-    
-    xhr.send(JSON.stringify(dados));
+
+    xhr.send();
 }
 
 
 // Chama a função para carregar os dados ao carregar a página
 window.onload = carregarDados;
+
