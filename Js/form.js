@@ -28,3 +28,8 @@ function enviarFormulario() {
     xhr.setRequestHeader('chave', 'teste');
     xhr.send(formData);
 }
+
+function fazerLogout() {
+    window.location.href = 'https://casadopao.pythonanywhere.com/logout';
+    console.log("teste");
+}
