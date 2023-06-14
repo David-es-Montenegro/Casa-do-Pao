@@ -4,9 +4,18 @@ function enviarFormulario() {
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'https://casadopao.pythonanywhere.com/login');
     xhr.onload = function () {
-        // Manipular a resposta da API aqui
-        console.log(xhr.responseText);
+      var popup = document.getElementById('popup');
+      var closeButton = document.querySelector('.close-button');
+      var responseMessage = document.getElementById('responseMessage');
+      
+      responseMessage.textContent = xhr.responseText;
+      popup.style.display = 'block';
+      
+      closeButton.addEventListener('click', function() {
+        popup.style.display = 'none';
+      });
     };
     xhr.setRequestHeader('chave', 'teste');
     xhr.send(formData);
-}
+  }
+  
