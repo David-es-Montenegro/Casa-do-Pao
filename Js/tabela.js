@@ -7,19 +7,22 @@ function preencherTabela(dados) {
         var row = tabela.insertRow(i + 1); // Inicia a partir da linha 1 para não substituir o cabeçalho
   
         // Preenche as células com os dados do beneficiário
-        row.insertCell(0).textContent = beneficiario.id_usuario;
-        row.insertCell(1).textContent = beneficiario.nome;
-        row.insertCell(2).textContent = beneficiario.genero;
+        row.insertCell(0).textContent = beneficiario.nome;
+        row.insertCell(1).textContent = beneficiario.genero;
+        row.insertCell(2).textContent = beneficiario.data_nascimento;
         row.insertCell(3).textContent = beneficiario.cpf;
-        row.insertCell(4).textContent = beneficiario.data_nascimento;
+        row.insertCell(4).textContent = beneficiario.nivel_escolaridade;
         row.insertCell(5).textContent = beneficiario.cep;
-        row.insertCell(6).textContent = beneficiario.eixo_formacao;
     }
 }
 
 function carregarDados() {
     var xhr = new XMLHttpRequest();
+    // Recupera os valores armazenados no armazenamento local
+    var token = localStorage.getItem('token');
+    console.log(token)
     xhr.open('GET', 'https://casadopao.pythonanywhere.com/consulta');
+    xhr.setRequestHeader('Authorization', token); // Adicione o token de autorização no cabeçalho
     xhr.setRequestHeader('Content-Type', 'application/json');
 
     xhr.onload = function () {
@@ -34,7 +37,7 @@ function carregarDados() {
     xhr.send();
 }
 
-
 // Chama a função para carregar os dados ao carregar a página
 window.onload = carregarDados;
+
 
