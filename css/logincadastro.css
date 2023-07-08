@@ -1,110 +1,125 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-body{
-    min-height: 100vh;
-    display: flex;
-    align-items: center; /* centro vertical*/
-    justify-content: center; /*centro horizontal*/
-    background: #FCF7E1;  
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 98%;
+  width: 100%;
 }
 
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FCF7E1;
+}
+
+.authorization-field {
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    font-size: 12px;
+}
 .login {
-    display: flex;
-    width: 30vw;
-    height: 40vh;
-    background-color: white;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  width: 50vh;
+  height: 80vh;
+  background-color: white;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  position: relative;
+ 
 }
 
-.login form{
-    color: #6A6262;
+.login form {
+  color: #6A6262;
 }
 
 .login input,
 .login select {
-    outline: none;
-    font-size: 14px;
-    font-weight: 400;
-    color: #898585;
-    border-radius: 10px;
-    border: 1px solid #6A6262;
-    padding: 10px;
-    height: 42px;
-    margin: 8px 0;
+  outline: none;
+  font-size: 14px;
+  font-weight: 400;
+  color: #898585;
+  border-radius: 10px;
+  border: 1px solid #6A6262;
+  padding: 10px;
+  height: 42px;
+  margin: 8px 0;
 }
 
 .login input:focus,
 .login select:focus {
-    border-color: #6A6262;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+  border-color: #6A6262;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
 }
 
 .input-field {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .enviar {
-    align-self: center;
+  align-self: center;
 }
 
 .label-text {
-    margin-bottom: 0.3vh;
+  margin-bottom: 0.3vh;
 }
 
 /* Estilos para o botão */
 #openPopupButton {
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
-  
-  /* Estilos para o pop-up */
-  .popup {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-  
-  .popup-content {
-    background-color: #fff;
-    margin: 10% auto;
-    padding: 20px;
-    border-radius: 5px;
-    max-width: 400px;
-    text-align: center;
-  }
-  
-  .close-button {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  .close-button:hover,
-  .close-button:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+/* Estilos para o pop-up */
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 400px;
+  text-align: center;
+}
+
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}

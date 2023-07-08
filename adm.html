@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Funcionários</title>
+    <link rel="stylesheet" href="css/logincadastro.css">
+    <script src="Js/form.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="login">
+            <form id="meuFormulario" onsubmit="enviarFormulario(); return false;">
+                <div class="input-field">
+                    <label class="label-text" for="name">Nome:</label>
+                    <input type="text" id="name" name="name" value="Maria" readonly>
+                </div>
+
+                <div class="input-field">
+                    <label class="label-text" for="username">CPF:</label>
+                    <input type="text" id="username" name="cpf" value="12345678900" readonly>
+                </div>
+            
+                <div class="input-field">
+                    <label class="label-text" for="password">Senha:</label>
+                    <input type="password" id="password" name="senha" value="******" required readonly>
+                </div>
+
+                <div class="input-field authorization-field">
+                    <label class="label-text" for="authorization">Chave de Autorização: 123456</label>
+                </div>
+                
+                <input class="enviar" type="submit" value="Cadastrar">
+            </form>
+        </div>
+    </div>
+    <div id="popup" class="popup">
+        <div class="popup-content">
+          <span class="close-button">&times;</span>
+          <h3>Erro</h3>
+          <p id="responseMessage"></p>
+        </div>
+    </div>
+</body>
+</html>
