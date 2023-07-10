@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css\casadopao.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    
+    <script src="Js\beneficiario.js"></script>
     
     <title>Informações do Beneficiário</title>
 </head>
@@ -15,7 +15,7 @@
     <nav>
         <div class="logo">
             <a href="index.html">
-                <img src="img\logoTransparente.png" alt="Logo">
+                <img id="user" src="img\logoTransparente.png" alt="Logo">
             </a>
         </div>
         <ul class="links">
@@ -37,17 +37,16 @@
                     <div class="fields" >
                         <div class="input-field">
                             <img class="user" src="img\usuario.png" alt="foto usuário">
-                            <button class="edit-button-img">Editar Foto</button>
                         </div>
 
                         <div class="input-field">
                             <label> Nome</label>
-                            <input type="text" value="Paulo da Silva Santos" required readonly>
+                            <input type="text" name="nome" value="Paulo da Silva Santos" required>
                         </div>
 
                         <div class="input-field">
                             <label>Gênero</label>
-                            <input type="text" value="Masculino" required readonly>
+                            <input type="text" name="genero" value="Masculino" required readonly>
                         </div>
 
                         <div class="input-field">
@@ -57,7 +56,7 @@
  
                          <div class="input-field">
                              <label> Telefone</label>
-                             <input type="text" value="81 999999999" required readonly>
+                             <input type="text" name="telefone" value="81 999999999" required readonly>
                            
                                
                               
@@ -67,7 +66,7 @@
                         
                          <div class="input-field">
                              <label> Data de Nascimento</label>
-                             <input type="text" value="01/08/1975" required readonly>
+                             <input type="text" name="data_nascimento" value="01/08/1975" required readonly>
                             
                         </div>
                        
@@ -80,18 +79,18 @@
                             <div class="fields">
                                 <div class="input-field">
                                     <label>Alfabetizado?</label>
-                                    <input type="text" value="Sim" required readonly>
+                                    <input type="text" name="alfabetizado" value="Sim" required readonly>
                                 </div>
         
                                 <div class="input-field">
                                     <label>Nível de Escolaridade</label>
-                                    <input type="text" value="Ensino Fundamental Completo" required readonly>
+                                    <input type="text" name="nivel_escolaridade" value="Ensino Fundamental Completo" required readonly>
                                 </div>
         
                                 <div class="input-field" id="teste" >
                                     <label>Possui Certificado?</label>
                                     <div style="flex-direction: column; display: flex;" >
-                                        <input type="text" value="Não" required readonly>
+                                        <input type="text" name="possui_certificado" value="Não" required readonly>
                                     
                                     </div>
                                 </div>
@@ -106,13 +105,13 @@
                                 <div class="fields">
                                     <div class="input-field">
                                         <label>CPF</label>
-                                        <input type="text" value="12345678999" required readonly>
+                                        <input type="text" name="cpf" value="12345678999" required readonly>
                                        
                                     </div>
             
                                     <div class="input-field">
                                         <label>RG</label>
-                                        <input type="text" value="8887665" required readonly>
+                                        <input type="text" name="rg" value="8887665" required readonly>
                                        
                                     </div>
             
@@ -131,27 +130,27 @@
                                     <div class="fields">
                                         <div class="input-field">
                                             <label>CEP</label>
-                                            <input type="text" value="53090000" required readonly>
+                                            <input type="text" name="cep" value="53090000" required readonly>
                                         </div>
                 
                                         <div class="input-field">
                                             <label>Bairro</label>
-                                            <input type="text" value="Santo Amaro" required readonly>
+                                            <input type="text" name="bairro" value="Santo Amaro" required readonly>
                                         </div>
                 
                                         <div class="input-field">
                                             <label>Município</label>
-                                            <input type="text" value="Recife" required readonly>
+                                            <input type="text" name="municipio" value="Recife" required readonly>
                                         </div>
 
                                         <div class="input-field">
                                             <label>Logradouro</label>
-                                            <input type="text" value="Rua da Aurora" required readonly>
+                                            <input type="text" name="rua" value="Rua da Aurora" required readonly>
                                         </div>
                 
                                         <div class="input-field">
                                             <label>Local onde dorme</label>
-                                            <input type="text" value="Estacionamento do estabelecimento X" required readonly>
+                                            <input type="text" name="localdormida" value="Estacionamento do estabelecimento X" required readonly>
                                         </div>
                 
                                         
@@ -167,12 +166,12 @@
                                 <div class="fields">
                                     <div class="input-field">
                                         <label>Eixo de Formação</label>
-                                        <input type="text" value="Desenvolvimento Educacional e Social" required readonly>
+                                        <input type="text" name="eixo_formacao" value="Desenvolvimento Educacional e Social" required readonly>
                                     </div>
             
                                     <div class="input-field">
                                         <label>Segmento</label>
-                                        <input type="text" value="Idiomas" required readonly>
+                                        <input type="text" name="segmento" value="Idiomas" required readonly>
                                     </div>
             
                                     
@@ -189,7 +188,7 @@
                             <div class="fields">
                                  <div class="input-field">
                                             <label>Observação</label>
-                                            <input type="text" value="SUSPENSO; Beneficiário foi suspenso por mau comportamento" required readonly>
+                                            <input type="text" name="observacao" value="SUSPENSO; Beneficiário foi suspenso por mau comportamento" required readonly>
         
                               <div class="input-field">
                                     </div>
@@ -211,135 +210,5 @@
 
         </form>
     </div>
-  <script>
-
-    
-
-/*código para aparecer "possui certificado?" se selecionar alguma opção do nível de escolaridade*/ 
-const nivelEscolaridadeSelect = document.querySelector('#nivel-escolaridade-select');
-const possuiCertificadoDiv = document.querySelector('#teste');
-
-nivelEscolaridadeSelect.addEventListener('change', function() {
-    const opcaoSelecionada = nivelEscolaridadeSelect.value;
-    if (opcaoSelecionada === "Não Possui") {
-        possuiCertificadoDiv.style.visibility = 'hidden';
-    } else {
-        possuiCertificadoDiv.style.visibility = 'visible';
-    }
-    
-});
-
-/*código para mostrar ou ocultar o botão de add imagem quando o usuário informa que há certificado*/ 
-const possuiCertificadoSelect = document.querySelector('#possui-certificado-select');
-const addCertificateButton = document.querySelector('.add-certificate');
-
-possuiCertificadoSelect.addEventListener('change', function() {
-const opcaoSelecionada = possuiCertificadoSelect.value;
-if (opcaoSelecionada === "Sim") {
-addCertificateButton.style.display = 'block';
-} else {
-addCertificateButton.style.display = 'none';
-}
-});
-
-const eixoFormacaoSelect = document.querySelector('#eixo-formacao-select');
-const segmentoSelect = document.querySelector('#segmento-select');
-
-eixoFormacaoSelect.addEventListener('change', function() {
-    const eixoSelecionado = eixoFormacaoSelect.value;
-    segmentoSelect.innerHTML = ''; // Limpa as opções existentes
-
-    if (eixoSelecionado === 'Ambiente e Saúde') {
-        const segmentos = ['Beleza', 'Meio Ambiente', 'Saúde'];
-        segmentos.forEach(function(segmento) {
-            const option = document.createElement('option');
-            option.textContent = segmento;
-            segmentoSelect.appendChild(option);
-        });
-    } else if (eixoSelecionado === 'Desenvolvimento Educacional e Social') {
-        const segmentos = ['Educacional', 'Idiomas', 'Social'];
-        segmentos.forEach(function(segmento) {
-            const option = document.createElement('option');
-            option.textContent = segmento;
-            segmentoSelect.appendChild(option);
-        });
-    }
-    else if (eixoSelecionado === 'Gestão e Negócios') {
-        const segmentos = ['Comércio', 'Gestão'];
-        segmentos.forEach(function(segmento) {
-            const option = document.createElement('option');
-            option.textContent = segmento;
-            segmentoSelect.appendChild(option);
-        });
-    }  else if (eixoSelecionado === 'Informação e Comunicação') {
-        const segmentos = ['Games', 'Tecnologia da Informação', 'Telecomunicações'];
-        segmentos.forEach(function(segmento) {
-            const option = document.createElement('option');
-            option.textContent = segmento;
-            segmentoSelect.appendChild(option);
-        });
-    
-    } else if (eixoSelecionado === 'Infraestrutura') {
-        const segmentos = ['Asseio, Conservação e Zeladoria', 'Construção e Reforma', 'Instalação, Manutenção e Reparação', 'Transporte e Armazenagem'];
-        segmentos.forEach(function(segmento) {
-            const option = document.createElement('option');
-            option.textContent = segmento;
-            segmentoSelect.appendChild(option);
-        });
-   
-    } else if (eixoSelecionado === 'Produção Alimentícia') {
-        const segmentos = ['Produção de Alimentos', 'Produção de Bebidas'];
-        segmentos.forEach(function(segmento) {
-            const option = document.createElement('option');
-            option.textContent = segmento;
-            segmentoSelect.appendChild(option);
-        });
-    } else if (eixoSelecionado === 'Produção Cultural e Design') {
-        const segmentos = ['Artes', 'Comunicação','Design', 'Moda'];
-        segmentos.forEach(function(segmento) {
-            const option = document.createElement('option');
-            option.textContent = segmento;
-            segmentoSelect.appendChild(option);
-        });
-    } else if (eixoSelecionado === 'Segurança') {
-        const segmentos = ['Segurança'];
-        segmentos.forEach(function(segmento) {
-            const option = document.createElement('option');
-            option.textContent = segmento;
-            segmentoSelect.appendChild(option);
-        });
-    }
-
-});
-
-/*script para os botoes de imagem*/
-const editarFotoBtn = document.querySelector('.edit-button-img');
-const adicionarImagemBtn = document.querySelector('.add-certificate');
-
-// Evento de clique para o botão "Editar Foto"
-editarFotoBtn.addEventListener('click', () => {
-  const input = document.createElement('input');
-  input.setAttribute('type', 'file');
-  input.setAttribute('accept', 'image/*');
-  input.addEventListener('change', (event) => {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => {
-      const img = document.createElement('img');
-      img.setAttribute('src', reader.result);
-      // Faça o que desejar com a imagem, como exibir ou processar
-      // Por exemplo, você pode substituir a imagem existente:
-      const userImg = document.querySelector('.user');
-      userImg.setAttribute('src', reader.result);
-    };
-  });
-  input.click();
-});
-
-
-
-
-  </script>
 </body>
 </html>
