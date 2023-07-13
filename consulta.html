@@ -29,20 +29,67 @@
 
     <div class="tabela">
         <h1>Consulta - Beneficiários</h1>
-        <select class="filtroporGeral">
-            <option value="opcao1">Filtrar por: Geral</option>
-            <option value="opcao1">Opção 1</option>
-            <option value="opcao2">Opção 2</option>
-            <option value="opcao3">Opção 3</option>
-            <!-- Adicione mais opções conforme necessário -->
-        </select>
-        <select class="filtroporGeral">
-            <option value="Max">Maximo</option>
-            <option value="10">10 resultados</option>
-            <option value="20">20 resultados</option>
-            <option value="50">50 resultados</option>
-            <!-- Adicione mais opções conforme necessário -->
-        </select>
+        <form>
+            <div class="input-field">
+                <input type="text" id="nomeBusca" name="nomeBusca" placeholder="Insira o nome" required>
+                <button class="button-save" type="submit">Buscar</button>
+            </div>
+        </form>
+        <form>
+            <select class="filtroporGeral">
+                <option value="opcao1">Todos</option>
+                <option value="opcao1">20 Resultados</option>
+                <option value="opcao2">50 Resultados</option>
+                <option value="opcao3">100 Resultados</option>
+                <!-- Adicione mais opções conforme necessário -->
+            </select>
+            <select class="filtroporGeral">
+                <option value="opcao1">Genero</option>
+                <option value="opcao1">Feminino</option>
+                <option value="opcao2">Masculino</option>
+                <option value="opcao3">Não binario</option>
+                <option value="opcao3">Homem trans</option>
+                <option value="opcao3">Mulher trans</option>
+                <option value="opcao3">Agenero</option>
+
+                <!-- Adicione mais opções conforme necessário -->
+            </select>
+            <select class="filtroporGeral">
+                <option value="opcao1">Idade</option>
+                <option value="opcao1">Até 20 anos</option>
+                <option value="opcao2">21- 30 anos</option>
+                <option value="opcao3">31- 40 anos</option>
+                <option value="opcao3">41- 50 anos</option>
+                <option value="opcao3">51 anos ou mais</option>
+                <!-- Adicione mais opções conforme necessário -->
+            </select>
+            <select class="filtroporGeral">
+                <option value="opcao1">Documentos</option>
+                <option value="opcao1">CPF</option>
+                <option value="opcao2">RG</option>
+                <option value="opcao3">CPF e RG</option>
+                <!-- Adicione mais opções conforme necessário -->
+            </select>
+            <select class="filtroporGeral">
+                <option value="não possui">Escolaridade</option>
+                <option value="não possui">Não Possui</option>
+                <option value="ensino fundamental incompleto">Ensino Fundamental Incompleto</option>
+                <option value="ensino fundamental completo">Ensino Fundamental Completo</option>
+                <option value="ensino medio incompleto">Ensino Médio Incompleto</option>
+                <option value="ensino medio completo">Ensino Médio Completo</option>
+                <option value="ensino tecnico incompleto">Ensino Técnico Incompleto</option>
+                <option value="ensino tecnico completo">Ensino Técnico Completo</option>
+                <option value="ensino superior incompleto">Ensino Superior Incompleto</option>
+                <option value="ensino superior completo">Ensino Superior Completo</option>
+                <!-- Adicione mais opções conforme necessário -->
+            </select>
+            <select class="filtroporGeral">
+                <option value="Max">Observação</option>
+                <option value="10">Com observação</option>
+                <option value="20">Sem observação</option>
+                <!-- Adicione mais opções conforme necessário -->
+            </select>
+        </form>
         <div class="tabelaentrada">
             <table id="tabela-dados">
                 <tr>
@@ -55,15 +102,15 @@
                 </tr>
             </table>
         </div>
-            <div class="BotaoCantoDireito">
-                <button class="botao-canto">
-                    <span class="elemento1">Gerar planilha</span>
-                    <span class="elemento2">
-                        <img src="img\exprtar.svg" alt="Ícone">
-                    </span>
-                </button>
-            </div>
+        <div class="BotaoCantoDireito">
+            <button class="botao-canto">
+                <span class="elemento1">Gerar planilha</span>
+                <span class="elemento2">
+                    <img src="img\exprtar.svg" alt="Ícone">
+                </span>
+            </button>
         </div>
+    </div>
 
     </div>
 

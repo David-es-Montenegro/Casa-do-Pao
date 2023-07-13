@@ -55,6 +55,7 @@ nav .links a {
     width: 100%;
     opacity: 0.3;
 }
+
 .marcadagua .image {
     width: 100%;
 }
@@ -82,7 +83,8 @@ nav .links a {
 }
 
 .filtroporGeral {
-    align-self: flex-end;
+    display: inline-flex;
+    justify-content: space-between;
     width: 15%;
     margin-top: 3%;
     margin-bottom: 2%;
@@ -132,7 +134,7 @@ select {
     width: 15%;
     margin-left: 85%;
     margin-top: 3%;
-    
+
 }
 
 .BotaoCantoDireito .botao-canto {
@@ -147,3 +149,78 @@ select {
     display: flex;
     justify-content: center;
 }
+
+.container form .fields .input-field .user {
+    width: 20vw;
+    margin: auto;
+    /* Adicione esta linha para centralizar horizontalmente */
+    border-radius: 1000px;
+    padding-bottom: 3vh;
+    margin-top: 10vh;
+}
+
+.container form .fields .input-field .edit-button-img {
+    margin-top: 10px;
+    /* Adicione esta linha para dar espaço entre a imagem e o botão */
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    background-color: #6A6262;
+    border: none;
+    cursor: pointer;
+    border-radius: 25px;
+    margin: auto;
+    width: 100px;
+    height: 25px;
+
+}
+
+form .fields .input-field {
+    display: flex;
+    width: calc(100% / 3 - 15px);
+    flex-direction: column;
+    margin: 4px 0;
+    position: relative;
+
+}
+
+.input-field label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #898585;
+}
+
+.input-field input,
+select {
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #898585;
+    border-radius: 10px;
+    border: 1px solid #6A6262;
+    padding: 0 15px;
+    height: 42px;
+    margin: 8px 0;
+}
+
+.input-field input:is(:focus, :valid):not(.checkbox-input) {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
+}
+
+.input-field input[type="date"]:valid {
+    color: #898585;
+}
+.button-save{
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    background-color: #6A6262;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 100px;
+    height: 40px;
+    margin: auto;
+    margin-top: 5%;
+  
+ }

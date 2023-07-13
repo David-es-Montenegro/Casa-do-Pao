@@ -120,7 +120,7 @@ margin-top: 40px;
  .details-documentation {
     margin-top: 30px; /* para separar ''documentação'' do botão de add imagem e ajudar na responsividade*/
 }
- .button-save{
+.button-save{
     font-size: 14px;
     font-weight: 500;
     color: #fff;
