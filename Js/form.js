@@ -15,7 +15,7 @@ function enviarFormulario() {
       // Armazene a resposta no armazenamento local do navegador
       localStorage.setItem('token', response.token);
       localStorage.setItem('user', response.user);
-      
+
       // Recupera os valores armazenados no armazenamento local
       var storedToken = localStorage.getItem('token');
       var storedUser = localStorage.getItem('user');
@@ -40,25 +40,25 @@ function enviarFormulario() {
 }
 
 
-  
 
-  function fazerLogout() {
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'https://casadopao.pythonanywhere.com/logout');
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.setRequestHeader('authorization', localStorage.getItem('token'));
-    localStorage.removeItem('token');
 
-    xhr.onload = function () {
-        if (xhr.status === 200) {
-            // Logout realizado com sucesso
-            window.location.href = '/login.html'; // Redirecionar para a página de login
-        } else {
-            console.error('Erro ao realizar o logout. Status: ' + xhr.status);
-        }
-    };
+function fazerLogout() {
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'https://casadopao.pythonanywhere.com/logout');
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.setRequestHeader('authorization', localStorage.getItem('token'));
+  localStorage.removeItem('token');
 
-    xhr.send();
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+      // Logout realizado com sucesso
+      window.location.href = '/login.html'; // Redirecionar para a página de login
+    } else {
+      console.error('Erro ao realizar o logout. Status: ' + xhr.status);
+    }
+  };
+
+  xhr.send();
 }
 
 function enviarFormBeneficiario() {

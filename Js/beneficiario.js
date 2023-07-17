@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('DOMContentLoaded', function () {
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "https://casadopao.pythonanywhere.com/beneficiario", true);
     var storedToken = localStorage.getItem('token');
@@ -10,7 +10,7 @@ window.addEventListener('DOMContentLoaded', function() {
     formData.append('nome', nomeBeneficiario);
     formData.append('dataNascimento', dataNascimentoBeneficiario);
 
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             var response = JSON.parse(xhr.responseText);
 
@@ -31,14 +31,14 @@ window.addEventListener('DOMContentLoaded', function() {
             document.querySelector('input[name="eixo_formacao"]').value = response.eixo_formacao;
             document.querySelector('input[name="segmento"]').value = response.segmento;
             document.querySelector('input[name="observacao"]').value = response.observacao;
-              
+
             // Requisição para a imagem de perfil
             var fotoPerfilXhr = new XMLHttpRequest();
             fotoPerfilXhr.open("POST", response.foto_perfil, true);
             fotoPerfilXhr.setRequestHeader("Authorization", storedToken);
             fotoPerfilXhr.responseType = 'blob';
 
-            fotoPerfilXhr.onreadystatechange = function() {
+            fotoPerfilXhr.onreadystatechange = function () {
                 if (fotoPerfilXhr.readyState === 4 && fotoPerfilXhr.status === 200) {
                     var blob = fotoPerfilXhr.response;
                     var url = URL.createObjectURL(blob);

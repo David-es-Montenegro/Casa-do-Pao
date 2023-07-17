@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css\new.css">
-    <script src="Js\tabela.js"></script>
     <title> Casa do Pão</title>
 </head>
 
@@ -29,49 +28,44 @@
 
     <div class="tabela">
         <h1>Consulta - Beneficiários</h1>
-        <form>
             <div class="input-field">
-                <input type="text" id="nomeBusca" name="nomeBusca" placeholder="Insira o nome" required>
-                <button class="button-save" type="submit">Buscar</button>
-            </div>
-        </form>
-        <form>
-            <select class="filtroporGeral">
-                <option value="opcao1">Todos</option>
-                <option value="opcao1">20 Resultados</option>
-                <option value="opcao2">50 Resultados</option>
-                <option value="opcao3">100 Resultados</option>
-                <!-- Adicione mais opções conforme necessário -->
+                <form id="buscarNome" onsubmit="buscar();return false;">
+                    <input type="text" id="searchInput" name="nomeBusca" required>
+                    <button class="button-save" type="submit">Buscar</button>
+                </form>
+            </div>       
+        <form id="filtros" onsubmit="filtros(); return false;">
+            <select class="filtroporGeral" id="resultados" name="resultados">
+                <option value="n/a">Todos</option>
+                <option value="20">20 Resultados</option>
+                <option value="50">50 Resultados</option>
+                <option value="100">100 Resultados</option>
             </select>
-            <select class="filtroporGeral">
-                <option value="opcao1">Genero</option>
-                <option value="opcao1">Feminino</option>
-                <option value="opcao2">Masculino</option>
-                <option value="opcao3">Não binario</option>
-                <option value="opcao3">Homem trans</option>
-                <option value="opcao3">Mulher trans</option>
-                <option value="opcao3">Agenero</option>
-
-                <!-- Adicione mais opções conforme necessário -->
+            <select class="filtroporGeral" id="genero" name="genero">
+                <option value="n/a">Genero</option>
+                <option value="feminino">Feminino</option>
+                <option value="masculino">Masculino</option>
+                <option value="não binario">Não binario</option>
+                <option value="homem trans">Homem trans</option>
+                <option value="mulher trans">Mulher trans</option>
+                <option value="agenero">Agenero</option>
             </select>
-            <select class="filtroporGeral">
-                <option value="opcao1">Idade</option>
-                <option value="opcao1">Até 20 anos</option>
-                <option value="opcao2">21- 30 anos</option>
-                <option value="opcao3">31- 40 anos</option>
-                <option value="opcao3">41- 50 anos</option>
-                <option value="opcao3">51 anos ou mais</option>
-                <!-- Adicione mais opções conforme necessário -->
+            <select class="filtroporGeral" id="idade" name="idade">
+                <option value="n/a">Idade</option>
+                <option value="0 and 20">Até 20 anos</option>
+                <option value="21 and 30">21 - 30 anos</option>
+                <option value="31 and 40">31 - 40 anos</option>
+                <option value="41 and 50">41 - 50 anos</option>
+                <option value="51 and 120">51 anos ou mais</option>
             </select>
-            <select class="filtroporGeral">
-                <option value="opcao1">Documentos</option>
-                <option value="opcao1">CPF</option>
-                <option value="opcao2">RG</option>
-                <option value="opcao3">CPF e RG</option>
-                <!-- Adicione mais opções conforme necessário -->
+            <select class="filtroporGeral" id="documentos" name="documentos">
+                <option value="n/a">Documentos</option>
+                <option value="cpf">CPF</option>
+                <option value="rg">RG</option>
+                <option value="cpf-rg">CPF e RG</option>
             </select>
-            <select class="filtroporGeral">
-                <option value="não possui">Escolaridade</option>
+            <select class="filtroporGeral" id="escolaridade" name="escolaridade">
+                <option value="n/a">Escolaridade</option>
                 <option value="não possui">Não Possui</option>
                 <option value="ensino fundamental incompleto">Ensino Fundamental Incompleto</option>
                 <option value="ensino fundamental completo">Ensino Fundamental Completo</option>
@@ -81,14 +75,13 @@
                 <option value="ensino tecnico completo">Ensino Técnico Completo</option>
                 <option value="ensino superior incompleto">Ensino Superior Incompleto</option>
                 <option value="ensino superior completo">Ensino Superior Completo</option>
-                <!-- Adicione mais opções conforme necessário -->
             </select>
-            <select class="filtroporGeral">
-                <option value="Max">Observação</option>
-                <option value="10">Com observação</option>
-                <option value="20">Sem observação</option>
-                <!-- Adicione mais opções conforme necessário -->
+            <select class="filtroporGeral" id="observacao" name="observacao">
+                <option value="n/a">Observação</option>
+                <option value="1">Com observação</option>
+                <option value="0">Sem observação</option>
             </select>
+            <button class="button-save" type="submit">Filtrar</button>
         </form>
         <div class="tabelaentrada">
             <table id="tabela-dados">
@@ -113,7 +106,7 @@
     </div>
 
     </div>
-
+    <script src="Js\tabela.js"></script>
 </body>
 
 </html>
