@@ -1,3 +1,4 @@
+var certificado = '';
 window.addEventListener('DOMContentLoaded', function () {
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "https://casadopao.pythonanywhere.com/beneficiario", true);
@@ -32,6 +33,13 @@ window.addEventListener('DOMContentLoaded', function () {
             document.querySelector('input[name="segmento"]').value = response.segmento;
             document.querySelector('input[name="observacao"]').value = response.observacao;
 
+            if (response.possui_certificado === 1) {
+                $('#botao-certificado').show();
+                certificado = response.foto_certificado;
+            }
+            else {
+                $('#botao-certificado').hide();
+            }
             // Requisição para a imagem de perfil
             var fotoPerfilXhr = new XMLHttpRequest();
             fotoPerfilXhr.open("POST", response.foto_perfil, true);
@@ -52,6 +60,31 @@ window.addEventListener('DOMContentLoaded', function () {
 
     xhr.send(formData);
 });
+
+function abrirFoto() {
+    var fotoCertificadoXhr = new XMLHttpRequest();
+    fotoCertificadoXhr.open("POST", certificado, true);
+    fotoCertificadoXhr.setRequestHeader("Authorization", localStorage.getItem('token'));
+    fotoCertificadoXhr.responseType = 'blob';
+
+    fotoCertificadoXhr.onreadystatechange = function () {
+        if (fotoCertificadoXhr.readyState === 4 && fotoCertificadoXhr.status === 200) {
+            var blob = fotoCertificadoXhr.response;
+            var url = URL.createObjectURL(blob);
+
+            // Abre uma nova janela com a imagem
+            var newWindow = window.open('', '_blank', 'width=1200,height=1200,scrollbars=yes');
+
+            // Escreve o HTML na nova janela com a imagem
+            newWindow.document.write('<html><body><img src="' + url + '" alt="Imagem"></body></html>');
+
+            // Garante que o conteúdo seja carregado corretamente antes de exibir
+            newWindow.document.close();
+        }
+    };
+
+    fotoCertificadoXhr.send();
+}
 
 function formatDate(dateString) {
     var date = new Date(dateString);
