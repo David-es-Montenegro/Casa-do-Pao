@@ -7,8 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css\casadopao.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <script src="Js\beneficiario.js"></script>
-
     <title>Informações do Beneficiário</title>
 </head>
 
@@ -94,7 +92,8 @@
                             <label>Possui Certificado?</label>
                             <div style="flex-direction: column; display: flex;">
                                 <input type="text" name="possui_certificado" value="Não" required readonly>
-                                <button class="button-save" id="botao-certificado" type="button" onclick="abrirFoto()">Ver certificado</button>
+                                <button class="button-save" id="botao-certificado" type="button"
+                                    onclick="abrirFoto()">Ver certificado</button>
                             </div>
                         </div>
 
@@ -193,27 +192,13 @@
                     <div class="fields">
                         <div class="input-field">
                             <label>Observação</label>
-                            <input type="text" name="observacao"
-                                value="SUSPENSO; Beneficiário foi suspenso por mau comportamento" required readonly>
-
-                            <div class="input-field">
-                            </div>
-
-
-                            <div class="input-field">
-                            </div>
-
-
+                            <input type="text" name="observacao" id="observacao" value="SUSPENSO; Beneficiário foi suspenso por mau comportamento" required>
                         </div>
-
+                        <button class="button-save" type="button" name="editarObservacao" id="editarObservacao">Editar observacao</button>
                     </div>
-
-
-
                 </div>
-
+                <button class="button-save" type="button" id="deletar" name="deletar" onclick="deletarRegistro();">Deletar Beneficiário</button>
             </div>
-
         </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

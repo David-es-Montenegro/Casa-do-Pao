@@ -1,4 +1,5 @@
 var certificado = '';
+var observacaoAtual = '';
 window.addEventListener('DOMContentLoaded', function () {
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "https://casadopao.pythonanywhere.com/beneficiario", true);
@@ -32,6 +33,7 @@ window.addEventListener('DOMContentLoaded', function () {
             document.querySelector('input[name="eixo_formacao"]').value = response.eixo_formacao;
             document.querySelector('input[name="segmento"]').value = response.segmento;
             document.querySelector('input[name="observacao"]').value = response.observacao;
+            observacaoAtual = response.observacao;
 
             if (response.possui_certificado === 1) {
                 $('#botao-certificado').show();
@@ -88,9 +90,78 @@ function abrirFoto() {
 
 function formatDate(dateString) {
     var date = new Date(dateString);
-    var day = date.getDate();
-    var month = date.getMonth() + 1;
-    var year = date.getFullYear();
+    
+    // Obtém o dia do mês (entre 1 e 31)
+    var day = date.getUTCDate();
 
+    // Obtém o mês (entre 0 e 11). Adiciona 1 para obter o mês entre 1 e 12.
+    var month = date.getUTCMonth() + 1;
+
+    // Obtém o ano com 4 dígitos
+    var year = date.getUTCFullYear();
+
+    // Formata a data no formato 'dd/mm/aaaa'
     return (day < 10 ? '0' + day : day) + '/' + (month < 10 ? '0' + month : month) + '/' + year;
+}
+
+document.getElementById('editarObservacao').addEventListener('click', editarObservacao);
+function editarObservacao() {
+    var observacaoNova = document.getElementById('observacao').value;
+    if (observacaoNova !== observacaoAtual){
+        var formData = new FormData();
+        var header = new Headers();
+    
+        header.append('Authorization', localStorage.getItem('token'));
+    
+        formData.append('nome', localStorage.getItem('nomeBeneficiario'));
+        formData.append('dataNascimento', localStorage.getItem('dataNascimentoBeneficiario'));
+        formData.append('observacao', observacaoNova);
+    
+        fetch('https://casadopao.pythonanywhere.com/observacao', {
+            method: 'POST',
+            body: formData,
+            headers: header
+        })
+        .then(function(response) {
+            if (response.ok) {
+                location.reload();
+            }
+            else {
+                console.log(response);
+            }
+            console.log('okay');
+        })
+    }
+}
+
+function deletarRegistro(){
+    var Prompt = window.prompt('Para deletar o registro deste beneficiario do banco de dados, por favor, digite: ' + localStorage.getItem('nomeBeneficiario'));
+    var beneficiario = localStorage.getItem('nomeBeneficiario');
+    var dataNascimento = localStorage.getItem('dataNascimentoBeneficiario');
+
+    if (Prompt == beneficiario){
+        var form = new FormData();
+        var header = new Headers();
+
+        form.append('nome', beneficiario);
+        form.append('dataNascimento', dataNascimento);
+        header.append('Authorization', localStorage.getItem('token'));
+
+        fetch('https://casadopao.pythonanywhere.com/deletar', {
+        method: 'POST',
+        body: form,
+        headers: header
+        })
+        .then(function(response) {
+            if (response.ok) {
+                window.location.href = 'consulta.html';
+            }
+            else {
+                alert(response.data);
+            }
+        });
+
+    }else{
+        alert('O nome do beneficiario não foi digitado corretamente.')
+    }
 }

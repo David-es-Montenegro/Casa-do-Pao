@@ -34,30 +34,8 @@ function preencherTabela(dados) {
   }
 }
 
-
-function carregarDados() {
-  var xhr = new XMLHttpRequest();
-  // Recupera os valores armazenados no armazenamento local
-  var token = localStorage.getItem('token');
-  console.log(token);
-  xhr.open('GET', 'https://casadopao.pythonanywhere.com/consulta');
-  xhr.setRequestHeader('Authorization', token); // Adicione o token de autorização no cabeçalho
-  xhr.setRequestHeader('Content-Type', 'application/json');
-
-  xhr.onload = function () {
-    if (xhr.status === 200) {
-      var dados = JSON.parse(xhr.responseText);
-      preencherTabela(dados);
-    } else {
-      console.error('Erro ao obter os dados da API. Status: ' + xhr.status);
-    }
-  };
-
-  xhr.send();
-}
-
 // Chama a função para carregar os dados ao carregar a página
-window.onload = carregarDados;
+window.onload = filtros;
 
 function buscar() {
   var form = document.getElementById('buscarNome');
