@@ -82,3 +82,48 @@ function filtros() {
   });
   xhr.send(formData);
 }
+
+document.getElementById("planilha").addEventListener('click', baixarPlanilha);
+function baixarPlanilha(){
+  var filtros = document.getElementById('filtros');
+  var form = new FormData(filtros);
+  var header = new Headers();
+
+  header.append('Authorization', localStorage.getItem('token'));
+
+  fetch('https://casadopao.pythonanywhere.com/gerar_planilha', {
+  method: 'POST',
+  body: form,
+  headers: header
+  })
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return response.blob(); // Convert the response to a Blob
+  })
+  .then((blob) => {
+    // Create a temporary URL for the Blob
+    const url = window.URL.createObjectURL(blob);
+
+    // Create a link element
+    const link = document.createElement("a");
+    link.href = url;
+
+    // Set the file name for the download
+    link.setAttribute("download", "Planilha de beneficiarios.xlsx");
+
+    // Append the link to the DOM and trigger the download
+    document.body.appendChild(link);
+    link.click();
+
+    // Remove the link from the DOM once the download is complete
+    document.body.removeChild(link);
+
+    // Release the Blob URL
+    window.URL.revokeObjectURL(url);
+  })
+  .catch((error) => {
+    console.error("Error fetching the file:", error);
+  });
+}

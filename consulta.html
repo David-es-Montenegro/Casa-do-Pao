@@ -28,12 +28,12 @@
 
     <div class="tabela">
         <h1>Consulta - Beneficiários</h1>
-            <div class="input-field">
-                <form id="buscarNome" onsubmit="buscar();return false;">
-                    <input type="text" id="searchInput" name="nomeBusca" required>
-                    <button class="button-save" type="submit">Buscar</button>
-                </form>
-            </div>       
+        <div class="input-field">
+            <form id="buscarNome" onsubmit="buscar();return false;">
+                <input type="text" id="searchInput" name="nomeBusca" required>
+                <button class="button-save" type="submit">Buscar</button>
+            </form>
+        </div>
         <form id="filtros" onsubmit="filtros(); return false;">
             <select class="filtroporGeral" id="resultados" name="resultados">
                 <option value="n/a">Todos</option>
@@ -97,10 +97,8 @@
         </div>
         <div class="BotaoCantoDireito">
             <button class="botao-canto">
-                <span class="elemento1">Gerar planilha</span>
-                <span class="elemento2">
-                    <img src="img\exprtar.svg" alt="Ícone">
-                </span>
+                <span class="elemento1" type="button" id="planilha" name="planilha">Gerar planilha</span>
+                <img src="img\exprtar.svg" alt="Ícone">
             </button>
         </div>
     </div>
