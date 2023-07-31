@@ -133,12 +133,14 @@
                     <div class="fields">
                         <div class="input-field">
                             <label>CPF</label>
-                            <input type="number" id="cpf" name="cpf" placeholder="Digite o CPF">
+                            <input id="cpf" name="cpf" maxlength="14" onblur="validarCPF();" autocomplete="off" placeholder="Digite o CPF">
+                            <!-- <p id="mensagem-validacao"></p> -->
+                            <div id="mensagem-validacao" style="color: red;"></div>
                         </div>
 
                         <div class="input-field">
                             <label>RG</label>
-                            <input type="number" id="rg" name="rg" placeholder="Digite o RG">
+                            <input id="rg" name="rg" maxlength="11" onblur="validarRG();" autocomplete="off" placeholder="Digite o RG">
                         </div>
 
                         <div class="input-field">
@@ -156,7 +158,7 @@
                     <div class="fields">
                         <div class="input-field">
                             <label>CEP</label>
-                            <input type="number" id="cep" name="cep" placeholder="Digite o CEP">
+                            <input id="cep" name="cep" maxlength="8" placeholder="Digite o CEP">
                         </div>
 
                         <div class="input-field">
@@ -378,8 +380,8 @@
 
 
 
-
     </script>
+    <script src="Js\form.js"></script>
 </body>
 
 </html>

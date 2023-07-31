@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CPF Validation</title>
+</head>
+<body>
+    <label for="cpf">CPF:</label>
+    <input type="text" id="cpf" name="cpf" maxlength="14" oninput="formatCPF()" onblur="validateCPF()">
+    <span id="cpfErrorMessage" style="color: red;"></span>
+
+    <script>
+        function formatCPF() {
+            let cpfInput = document.getElementById('cpf');
+            let value = cpfInput.value.replace(/\D/g, '');
+            let formattedCPF = value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+            cpfInput.value = formattedCPF;
+        }
+
+        function validateCPF() {
+            let cpfInput = document.getElementById('cpf');
+            let value = cpfInput.value.replace(/\D/g, '');
+
+            if (value.length !== 11 || !isAllDigitsEqual(value) || !isValidCPF(value)) {
+                document.getElementById('cpfErrorMessage').textContent = 'Invalid CPF';
+            } else {
+                document.getElementById('cpfErrorMessage').textContent = '';
+            }
+        }
+
+        function isAllDigitsEqual(cpf) {
+            return /^(.)\1+$/.test(cpf);
+        }
+
+        function isValidCPF(cpf) {
+            let sum;
+            let remainder;
+            sum = 0;
+            if (cpf === '00000000000') return false;
+
+            for (let i = 1; i <= 9; i++) sum = sum + parseInt(cpf.substring(i - 1, i)) * (11 - i);
+            remainder = (sum * 10) % 11;
+
+            if ((remainder === 10) || (remainder === 11)) remainder = 0;
+            if (remainder !== parseInt(cpf.substring(9, 10))) return false;
+
+            sum = 0;
+            for (let i = 1; i <= 10; i++) sum = sum + parseInt(cpf.substring(i - 1, i)) * (12 - i);
+            remainder = (sum * 10) % 11;
+
+            if ((remainder === 10) || (remainder === 11)) remainder = 0;
+            if (remainder !== parseInt(cpf.substring(10, 11))) return false;
+            return true;
+        }
+    </script>
+</body>
+</html>
