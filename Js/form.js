@@ -4,9 +4,6 @@ function enviarFormulario() {
   var xhr = new XMLHttpRequest();
   xhr.open('POST', 'https://casadopao.pythonanywhere.com/login');
   xhr.onload = function () {
-    var popup = document.getElementById('popup');
-    var closeButton = document.querySelector('.close-button');
-    var responseMessage = document.getElementById('responseMessage');
 
     if (xhr.status === 200) {
       // Código 200 indica uma resposta bem-sucedida
@@ -14,21 +11,41 @@ function enviarFormulario() {
 
       // Armazene a resposta no armazenamento local do navegador
       localStorage.setItem('token', response.token);
+      console.log(localStorage.getItem('token'));
       localStorage.setItem('user', response.user);
-
-      // Recupera os valores armazenados no armazenamento local
-      var storedToken = localStorage.getItem('token');
-      var storedUser = localStorage.getItem('user');
+      localStorage.setItem('cpf', formData.get('cpf'));
 
       window.location.href = "/index.html";
     } else if (xhr.status === 401) {
       // Código 401 indica uma resposta de autorização inválida
-      responseMessage.textContent = "Erro de autorização. Por favor, faça login novamente.";
-      popup.style.display = 'block';
+      alert ("Erro de autorização. Por favor, faça login novamente.");
     } else {
       // Outros códigos de status podem ser tratados aqui
-      responseMessage.textContent = "Erro desconhecido.";
-      popup.style.display = 'block';
+      alert ("Erro desconhecido.");
+    }
+  };
+  xhr.setRequestHeader('chave', 'teste');
+  xhr.send(formData);
+}
+
+function cadastrarADM() {
+  var form = document.getElementById('meuFormulario');
+  var formData = new FormData(form);
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'https://casadopao.pythonanywhere.com/cadastro');
+  xhr.onload = function () {
+
+    if (xhr.status === 201) {
+      alert ("Cadastro realizado, faça login para prosseguir.");
+      window.location.href = '/login.html';
+    } else if (xhr.status === 401) {
+      // Código 401 indica uma resposta de autorização inválida
+      alert ("Chave de autorização incorreta.");
+    } else if (xhr.status === 409){
+      // Outros códigos de status podem ser tratados aqui
+      alert ("Administrador já cadastrado na base de dados, faça login");
+    } else {
+      alert ("Erro desconhecido.")
     }
 
     closeButton.addEventListener('click', function () {
@@ -38,8 +55,6 @@ function enviarFormulario() {
   xhr.setRequestHeader('chave', 'teste');
   xhr.send(formData);
 }
-
-
 
 
 function fazerLogout() {
@@ -59,6 +74,7 @@ function fazerLogout() {
   };
 
   xhr.send();
+  console.log("rodou");
 }
 
 function enviarFormBeneficiario() {
@@ -69,23 +85,24 @@ function enviarFormBeneficiario() {
   var storedToken = localStorage.getItem('token');
   xhr.setRequestHeader('Authorization', storedToken);
   xhr.onload = function () {
-    if (xhr.status === 201) {
       // A requisição foi bem-sucedida
-      if (xhr.responseText === 'Sucesso') {
+      if (xhr.status === 201) {
         alert('Cadastro realizado com sucesso!');
-      } else {
-        alert('Erro ao enviar os dados');
+        window.location.href = '/cadastro.html';
+      } 
+      if (xhr.status === 401){
+        alert('Faça login para cadastrar um beneficiario.');
+        window.location.href = '/login.html';
       }
-    } else {
+      if (xhr.status === 409){
       // A requisição retornou um erro
-      alert('Beneficiario já cadastrado');
-    }
+      alert('Beneficiario já esta cadastrado na base de dados');
+      }
   };
   xhr.send(formData);
 }
 
 document.getElementById('cpf').addEventListener('input', formatarCPF);
-
 function formatarCPF() {
   var cpf = document.getElementById('cpf').value.replace(/[a-zA-Z]/g, '');
 
@@ -106,6 +123,7 @@ function formatarCPF() {
   }
 
   document.getElementById('cpf').value = cpf;
+  console.log("okay");
 }
 
 function validarCPF() {
@@ -159,7 +177,6 @@ function validarCPF() {
   }
 
 document.getElementById('rg').addEventListener('input', formatarRG);
-
 function formatarRG() {
   var rg = document.getElementById('rg').value.replace(/[a-zA-Z]/g, '');
 

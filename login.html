@@ -12,7 +12,7 @@
         <form id="meuFormulario" onsubmit="enviarFormulario(); return false;">
             <div class="input-field">
                 <label class="label-text" for="username">CPF:</label>
-                <input type="text" id="username" name="cpf" required>
+                <input type="text" id="cpf" onblur="validarCPF();" name="cpf" maxlength="14" required>
             </div>
         
             <div class="input-field">
@@ -21,15 +21,10 @@
             </div>
             
             <input class="enviar" type="submit" value="Entrar">
+            <input type="button" onclick="location.href='/cadastrofuncionario.html';" value="Cadastrar-se" />
         </form>
     </div>
-    <div id="popup" class="popup">
-        <div class="popup-content">
-          <span class="close-button">&times;</span>
-          <h3>Erro</h3>
-          <p id="responseMessage"></p>
-        </div>
-      </div>
 </body>
+<script src="Js\form.js"></script>
 </html>
 

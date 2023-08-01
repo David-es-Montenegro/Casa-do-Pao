@@ -6,6 +6,8 @@
     <title>Cadastro de Funcionários</title>
     <link rel="stylesheet" href="css/logincadastro.css">
     <script src="Js/form.js"></script>
+    <script src="Js\administrador.js"></script>
+
 </head>
 <body>
     <div class="container">
@@ -13,12 +15,12 @@
             <form id="meuFormulario" onsubmit="enviarFormulario(); return false;">
                 <div class="input-field">
                     <label class="label-text" for="name">Nome:</label>
-                    <input type="text" id="name" name="name" value="Maria" readonly>
+                    <input type="text" id="name" name="nome" value="Maria" readonly>
                 </div>
 
                 <div class="input-field">
                     <label class="label-text" for="username">CPF:</label>
-                    <input type="text" id="username" name="cpf" value="12345678900" readonly>
+                    <input type="text" id="cpf" name="cpf" value="12345678900" readonly>
                 </div>
             
                 <div class="input-field">
@@ -30,7 +32,8 @@
                     <label class="label-text" for="authorization">Chave de Autorização: 123456</label>
                 </div>
                 
-                <input class="enviar" type="submit" value="Cadastrar">
+                <input class="enviar" type="button" onclick="deletarConta();" value="Deletar conta">
+                <input class="enviar" type="button" value="Redefinir senha">
             </form>
         </div>
     </div>
@@ -42,4 +45,6 @@
         </div>
     </div>
 </body>
+<script src="Js/form.js"></script>
+<script src="Js\administrador.js"></script>
 </html>

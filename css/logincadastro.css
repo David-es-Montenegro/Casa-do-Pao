@@ -20,7 +20,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #FCF7E1;
+  background: #faeba7;
 }
 
 .authorization-field {
@@ -31,8 +31,8 @@ body {
 }
 .login {
   display: flex;
-  width: 50vh;
-  height: 80vh;
+  width: 50vw;
+  height: 60vh;
   background-color: white;
   align-items: center;
   justify-content: center;

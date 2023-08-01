@@ -52,9 +52,9 @@ function buscar() {
       var response = JSON.parse(xhr.responseText);
       // Aqui você pode trabalhar com os dados da resposta (response)
       preencherTabela(response);
-    } else {
+    } if (xhr.status === 401) {
       // Erro na requisição
-      console.error('Erro na requisição:', xhr.status);
+      alert("Faça login para visualizar os dados da tabela.");
     }
   });
   xhr.send(formData);
@@ -75,9 +75,9 @@ function filtros() {
       var response = JSON.parse(xhr.responseText);
       // Aqui você pode trabalhar com os dados da resposta (response)
       preencherTabela(response);
-    } else {
+    } if (xhr.status === 401) {
       // Erro na requisição
-      console.error('Erro na requisição:', xhr.status);
+      alert("Faça login para visualizar os dados da tabela.")
     }
   });
   xhr.send(formData);
@@ -98,6 +98,7 @@ function baixarPlanilha(){
   })
   .then((response) => {
     if (!response.ok) {
+      alert("Faça login para realizar download de planilhas.");
       throw new Error("Network response was not ok");
     }
     return response.blob(); // Convert the response to a Blob
