@@ -7,35 +7,27 @@
     <link rel="stylesheet" href="css/logincadastro.css">
     <script src="Js/form.js"></script>
     <script src="Js\administrador.js"></script>
-
 </head>
 <body>
     <div class="container">
         <div class="login">
-            <form id="meuFormulario" onsubmit="enviarFormulario(); return false;">
+            <form id="meuFormulario" onsubmit="recuperarSenha();">
                 <div class="input-field">
-                    <label class="label-text" for="name">Nome:</label>
-                    <input type="text" id="name" name="nome" value="Maria" readonly>
-                </div>
-
-                <div class="input-field">
-                    <label class="label-text" for="username">CPF:</label>
-                    <input type="text" id="cpf" name="cpf" value="12345678900" readonly>
+                    <label class="label-text" for="cpf">CPF:</label>
+                    <input type="text" id="cpf" name="cpf" maxlength="14" onblur="validarCPF();" required>
                 </div>
             
                 <div class="input-field">
                     <label class="label-text" for="password">Senha:</label>
-                    <input type="password" id="password" name="senha" value="******" required readonly>
+                    <input type="password" id="password" name="senha" required>
                 </div>
 
-                <div class="input-field authorization-field">
+                <div class="input-field">
                     <label class="label-text" for="authorization">Chave de Autorização:</label>
-                    <input type="text" id="codigo" value="codigo" maxlength="6" readonly>
-                    <br>
+                    <input type="text" id="authorization" name="autorizacao" maxlength="6" required>
                 </div>
                 
-                <input class="enviar" id="deletar" type="button" style="background-color: red; color: white;" onclick="deletarConta();" value="Deletar conta">
-                <input class="enviar" id="redefinir" type="button" onclick="redefinirSenha();" value="Alterar senha">
+                <input class="enviar" type="submit" value="redefinir">
             </form>
         </div>
     </div>
@@ -47,6 +39,6 @@
         </div>
     </div>
 </body>
-<script src="Js/form.js"></script>
+<script src="Js\form.js"></script>
 <script src="Js\administrador.js"></script>
 </html>

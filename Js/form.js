@@ -18,13 +18,13 @@ function enviarFormulario() {
       window.location.href = "/index.html";
     } else if (xhr.status === 401) {
       // Código 401 indica uma resposta de autorização inválida
-      alert ("Erro de autorização. Por favor, faça login novamente.");
-    } else {
+      alert ("CPF não cadastrado no sistema.");
+    } else if (xhr.status === 403){
       // Outros códigos de status podem ser tratados aqui
-      alert ("Erro desconhecido.");
+      alert ("credenciais incorretas.");
     }
   };
-  xhr.setRequestHeader('chave', 'teste');
+  xhr.setRequestHeader('chave', '$WW&elJkD@t0DYyyl6m995Zb46zn!JtqF9kFvM6LTX3NYQ9$vp');
   xhr.send(formData);
 }
 
@@ -52,7 +52,7 @@ function cadastrarADM() {
       popup.style.display = 'none';
     });
   };
-  xhr.setRequestHeader('chave', 'teste');
+  xhr.setRequestHeader('chave', '$WW&elJkD@t0DYyyl6m995Zb46zn!JtqF9kFvM6LTX3NYQ9$vp');
   xhr.send(formData);
 }
 
